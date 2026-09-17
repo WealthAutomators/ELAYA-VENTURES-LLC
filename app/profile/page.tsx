@@ -40,8 +40,8 @@ export default function LoginPage() {
         </h1>
 
         <div className="mx-auto mt-10 max-w-lg">
-          <div className="rounded-lg border border-border bg-white p-6 shadow-sm md:p-8">
-            <h2 className="text-lg font-semibold text-foreground">Log In Your Account</h2>
+          <div className="border border-border bg-card p-6 md:p-8">
+            <h2 className="font-display text-lg font-medium text-foreground">Log in to your account</h2>
 
             <form onSubmit={handleLogin} className="mt-6 space-y-5">
               <div>

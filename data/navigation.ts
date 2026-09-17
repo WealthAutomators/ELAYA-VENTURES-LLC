@@ -1,8 +1,8 @@
 import { NavLink } from "@/types";
 import { categories } from "./categories";
+import { collections } from "./collections";
 
 export const navigationLinks: NavLink[] = [
-  { label: "Home", href: "/" },
   { label: "Shop", href: "/shop" },
   {
     label: "Categories",
@@ -12,24 +12,29 @@ export const navigationLinks: NavLink[] = [
       href: `/categories/${c.slug}`,
     })),
   },
+  {
+    label: "Collections",
+    href: "/collections",
+    children: collections.map((c) => ({
+      label: c.name,
+      href: `/collections/${c.slug}`,
+    })),
+  },
   { label: "New Arrivals", href: "/new-arrivals" },
-  { label: "Best Sellers", href: "/best-sellers" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
 export const footerLinks = {
   company: [
-    { label: "About Us", href: "/about" },
-    { label: "Contact Us", href: "/contact" },
-    { label: "Careers", href: "/contact" },
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
     { label: "FAQs", href: "/faq" },
   ],
   customerCare: [
     { label: "Track Order", href: "/track-order" },
     { label: "Returns", href: "/returns" },
     { label: "Shipping Policy", href: "/shipping" },
-    { label: "Support", href: "/contact" },
   ],
   legal: [
     { label: "Privacy Policy", href: "/privacy" },

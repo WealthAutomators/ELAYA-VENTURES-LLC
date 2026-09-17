@@ -16,7 +16,7 @@ interface PageHeroProps {
 
 export function PageHero({ title, description, breadcrumbs }: PageHeroProps) {
   return (
-    <div className="border-b border-border bg-muted/30">
+    <div className="border-b border-border bg-muted/40">
       <Container className="py-6 md:py-8">
         <nav aria-label="Breadcrumb" className="mb-4">
           <ol className="flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground">
@@ -40,7 +40,7 @@ export function PageHero({ title, description, breadcrumbs }: PageHeroProps) {
             ))}
           </ol>
         </nav>
-        {title && <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">{title}</h1>}
+        {title && <h1 className="font-display text-3xl font-medium tracking-tight md:text-4xl">{title}</h1>}
         {description && (
           <p className="mt-3 max-w-2xl text-muted-foreground leading-relaxed">{description}</p>
         )}

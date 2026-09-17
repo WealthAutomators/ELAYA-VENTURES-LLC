@@ -1,20 +1,16 @@
-import {
-  Feature,
-  HeroSlide,
-  PromoBanner,
-} from "@/types";
+import { Feature, HeroSlide, PromoBanner } from "@/types";
 
 export const heroSlides: HeroSlide[] = [
   {
     id: "1",
     image: "/hero/hero-1.jpg",
-    headline: "Everything Your Home Needs, All in One Place.",
+    headline: "Goods for a quieter home.",
     description:
-      "Shop electronics, home essentials, toys, beauty products, kitchen accessories and more at prices you'll love.",
-    ctaText: "Shop Collection",
+      "Home textiles, kitchen tools, and everyday objects chosen for material, proportion, and lasting use.",
+    ctaText: "Shop the catalog",
     ctaLink: "/shop",
-    secondaryCtaText: "Today's Deals",
-    secondaryCtaLink: "/shop?sale=true",
+    secondaryCtaText: "Browse collections",
+    secondaryCtaLink: "/collections",
   },
 ];
 
@@ -22,122 +18,141 @@ export const features: Feature[] = [
   {
     id: "1",
     icon: "truck",
-    title: "Fast Shipping",
-    description: "Free shipping on orders over $75. Delivered in 3–5 business days.",
+    title: "Free shipping over $75",
+    description: "Standard delivery in 3–5 business days on qualifying orders.",
   },
   {
     id: "2",
     icon: "shield",
-    title: "Secure Checkout",
-    description: "Your payment information is protected with industry-standard encryption.",
+    title: "Secure checkout",
+    description: "A demo payment flow with encrypted form fields. No real charges.",
   },
   {
     id: "3",
     icon: "rotate",
-    title: "Easy Returns",
-    description: "Hassle-free 30-day returns on most items. We make it simple.",
+    title: "30-day returns",
+    description: "Unused items in original packaging may be returned within 30 days.",
   },
   {
     id: "4",
-    icon: "headphones",
-    title: "Customer Support",
-    description: "Our friendly team is available Mon–Fri to help with orders and questions.",
+    icon: "mail",
+    title: "Write to us",
+    description: "Questions about an order or product can be sent by email.",
   },
   {
     id: "5",
     icon: "star",
-    title: "Trusted Quality",
-    description: "Every product is carefully selected for quality, value, and reliability.",
+    title: "Considered selection",
+    description: "Each piece is chosen for function, material, and calm design.",
   },
 ];
 
-export const dealsEndTime = new Date(Date.now() + 1000 * 60 * 60 * 18).toISOString();
+export const dealsEndTime = "2026-09-17T06:00:00.000Z";
 
 export const homepageDealsSlugs = [
-  "wireless-earbuds",
   "electric-kettle",
-  "air-fryer",
-  "dog-bed",
   "bath-towel-set",
-  "sunglasses-classic",
+  "percale-sheet-set",
+  "canvas-weekender",
 ] as const;
 
 export const homepageBestsellerSlugs = [
-  "wireless-earbuds",
-  "bluetooth-speaker",
+  "merino-throw-blanket",
+  "stoneware-dinner-set",
   "bath-towel-set",
-  "yoga-mat",
-  "kids-learning-tablet",
-  "coffee-grinder",
-  "dog-bed",
+  "canvas-tote",
+  "beechwood-cutting-board",
   "electric-kettle",
+  "canvas-storage-bins",
+  "soy-pillar-candle",
 ] as const;
 
 export const homepageFeaturedSlugs = [
-  "wireless-earbuds",
-  "electric-kettle",
-  "bath-towel-set",
-  "kids-learning-tablet",
+  "linen-duvet-cover",
+  "merino-throw-blanket",
+  "stoneware-dinner-set",
+  "canvas-weekender",
+  "stoneware-vase",
   "standing-desk-lamp",
-  "air-fryer",
-  "yoga-mat",
-  "dog-bed",
-  "coffee-grinder",
-  "bluetooth-speaker",
+  "canvas-tote",
+  "bath-towel-set",
 ] as const;
 
 export const homepageNewArrivalSlugs = [
-  "stem-robot-kit",
-  "vitamin-c-serum-set",
-  "baby-monitor",
-  "foam-roller",
+  "linen-duvet-cover",
+  "canvas-weekender",
+  "linen-sleep-mask",
+  "packing-cubes",
+  "framed-linen-print",
+  "brass-bookends",
 ] as const;
 
-export const promotionalBanner: PromoBanner = {
-  id: "1",
-  title: "Upgrade Your Everyday Living",
+export const homepageKitchenSlugs = [
+  "stoneware-dinner-set",
+  "beechwood-cutting-board",
+  "electric-kettle",
+  "coffee-grinder",
+  "kitchen-scale",
+  "linen-tea-towels",
+  "glass-storage-jars",
+  "wall-hook-rail",
+  "packing-cubes",
+] as const;
+
+export const editorialShowcase = {
+  slug: "linen-duvet-cover",
+  eyebrow: "Featured piece",
+  title: "Herringbone, made to be slept in.",
   description:
-    "Discover premium products for every room in your home, from smart electronics to comfortable essentials, all in one place.",
-  buttonText: "Shop Deals",
-  buttonLink: "/shop?sale=true",
+    "A charcoal herringbone duvet cover with a lived-in drape from the first night. Interior ties and a quiet grey that sits well on the bed.",
+  ctaText: "View the duvet cover",
   image: "/banners/featured.jpg",
 };
 
-export const aboutSection = {
-  title: "Shopping Made Easy.",
+export const promotionalBanner: PromoBanner = {
+  id: "1",
+  title: "Practical pieces, kept in rotation.",
   description:
-    "AAM Partners LLC brings together quality products across multiple categories, helping families find everything they need in one trusted online marketplace. We focus on affordability, reliability, and a smooth shopping experience from browsing to checkout.",
+    "From pantry jars to desk trays — objects chosen because they earn their place, not because they fill a grid.",
+  buttonText: "Shop practical picks",
+  buttonLink: "/collections/practical-picks",
+  image: "/banners/promo-1.jpg",
+};
+
+export const aboutSection = {
+  title: "A considered retail catalog.",
+  description:
+    "ELAYA VENTURES LLC offers home, kitchen, and everyday goods selected for material quality and calm design. The assortment is meant to be used often and kept for a long time.",
   checklist: [
-    "Wide selection across 12+ categories",
-    "Competitive prices on everyday essentials",
-    "Fast, reliable shipping nationwide",
-    "Dedicated customer support team",
+    "Home textiles, kitchen tools, and desk objects",
+    "Travel pieces built for repeated packing",
+    "Free standard shipping on orders over $75",
+    "Straightforward returns within 30 days",
   ],
-  buttonText: "Learn More About Us",
+  buttonText: "About the store",
   buttonLink: "/about",
   image: "/banners/about.jpg",
 };
 
 export const featuredCollection = {
-  title: "Featured Products",
-  description:
-    "Hand-picked favorites across electronics, home, beauty, and more — everything you need in one marketplace.",
+  title: "The home edit",
+  description: "Textiles and objects for rooms that are lived in, not staged.",
   bannerImage: "/banners/featured.jpg",
-  categorySlug: "electronics",
+  categorySlug: "home-living",
 };
 
 export const bestSellerTabs = [
   { label: "All", slug: "all" },
-  { label: "Electronics", slug: "electronics" },
-  { label: "Home & Kitchen", slug: "home-kitchen" },
-  { label: "Beauty", slug: "beauty" },
-  { label: "Sports", slug: "sports-outdoors" },
+  { label: "Home", slug: "home-living" },
+  { label: "Kitchen", slug: "kitchen" },
+  { label: "Office", slug: "office" },
+  { label: "Travel", slug: "travel" },
 ];
 
 export const newsletter = {
-  title: "Get Exclusive Deals Before Everyone Else",
-  description: "Subscribe for discounts, new arrivals, and weekly offers.",
-  placeholder: "Enter your email address",
+  title: "Notes from the catalog",
+  description: "New arrivals and seasonal edits, sent occasionally.",
+  placeholder: "Email address",
   buttonText: "Subscribe",
 };
 

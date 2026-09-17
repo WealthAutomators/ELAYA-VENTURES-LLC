@@ -1,82 +1,57 @@
 import { ProductReview, RatingBreakdown } from "@/types";
 
 const FIRST_NAMES = [
-  "Sarah", "James", "Emily", "Michael", "Jessica", "David", "Amanda", "Robert",
-  "Jennifer", "Chris", "Lauren", "Daniel", "Rachel", "Mark", "Ashley", "Brian",
-  "Nicole", "Kevin", "Stephanie", "Jason", "Michelle", "Ryan", "Laura", "Eric",
-  "Heather", "Matt", "Kimberly", "Andrew", "Lisa", "Thomas",
+  "Helena", "James", "Elena", "Michael", "Priya", "David", "Sofia", "Robert",
+  "Jonah", "Chris", "Lauren", "Daniel", "Rachel", "Mark", "Ingrid", "Brian",
+  "Nicole", "Kevin", "Marta", "Jason", "Michelle", "Ryan", "Laura", "Eric",
+  "Clara", "Matt", "Kimberly", "Andrew", "Lisa", "Thomas",
 ];
 
 const LAST_INITIALS = "ABCDEFGHJKLMNPRSTW";
 
 const REVIEW_PHOTOS = Array.from({ length: 8 }, (_, i) => `/reviews/review-${i + 1}.jpg`);
 
-const REVIEW_TITLES_5 = [
-  "Absolutely love this",
-  "Best purchase I've made",
-  "Exceeded my expectations",
-  "Worth every penny",
-  "Perfect quality",
-  "Will buy again",
-  "Highly recommend",
-  "Exactly what I needed",
-  "Outstanding product",
-  "My new favorite",
-  "Couldn't be happier",
-  "Fantastic find",
-  "Great value for the price",
-  "Surpassed expectations",
-  "Works perfectly",
-];
-
-const REVIEW_TITLES_4 = [
-  "Very good, minor issue",
-  "Great overall",
-  "Almost perfect",
-  "Good quality, slow shipping",
-  "Really nice, slightly smaller than expected",
-  "Solid purchase",
-  "Happy with it",
-  "Good but not perfect",
-];
-
-const REVIEW_TITLES_3 = [
-  "Decent but expected more",
-  "It's okay",
-  "Average quality",
-  "Mixed feelings",
-  "Not bad, not great",
-];
-
-const BODIES_5 = [
-  "Ordered this along with a few other items and everything arrived well-packaged. Quality is exactly what you'd expect from a premium marketplace. Already planning my next order.",
-  "I've compared prices across several sites and this was the best deal. Product works flawlessly and shipping was faster than expected. Very impressed with AAM Partners.",
-  "Bought this as a gift and the recipient loved it. Packaging was neat, product feels premium, and it works exactly as described. Will definitely shop here again.",
-  "This has become a daily essential in our household. Build quality is solid, setup was easy, and it performs better than products I've paid twice as much for elsewhere.",
-  "Wasn't sure about ordering online but this exceeded all expectations. Arrived in two days, works perfectly out of the box, and customer support answered my pre-purchase questions quickly.",
-  "Third time ordering from AAM Partners and they never disappoint. Consistent quality, fair prices, and reliable shipping every single time. Highly recommend.",
-  "The product photos don't do it justice — it's even better in person. Sturdy construction, thoughtful design details, and great value for what you get.",
-  "Perfect for what I needed. Easy to use, well-made, and the price point is very competitive. My whole family has been using it daily since it arrived.",
-  "I read a lot of reviews before buying and I'm glad I went with this one. Does everything it promises and then some. Five stars without hesitation.",
-  "Fast delivery, great packaging, and a product that actually lives up to the description. It's rare to find all three — AAM Partners nailed it.",
-  "Replaced an older version of a similar product and this is a massive upgrade. Better materials, better performance, and it looks great too.",
-  "Ordered during a sale and still would have been happy at full price. Quality is top-notch and it integrated seamlessly into my daily routine.",
-];
-
-const BODIES_4 = [
-  "Really happy with this purchase overall. Product quality is great and it works as expected. Took an extra day to ship but arrived in good condition.",
-  "Good product for the price. Does what it's supposed to do well. Only minor complaint is the instruction manual could be clearer, but setup was still manageable.",
-  "Solid quality and fast delivery. Gave 4 stars instead of 5 because it's slightly smaller than I imagined from the photos, but functionally it's excellent.",
-  "Very pleased with the purchase. Works great and looks good. One small cosmetic imperfection on arrival but nothing that affects performance.",
-  "Good value and reliable performance. Would recommend to others. Shipping was a bit slower than the estimate but the product itself is worth the wait.",
-  "Nice product that meets expectations. Quality materials and decent packaging. Lost one star because I wish there were more color options available.",
-];
-
-const BODIES_3 = [
-  "It's fine for the price. Does the job but nothing particularly stood out. Shipping was quick which was a plus. Might look at alternatives next time.",
-  "Average product — works but I expected a bit more given the reviews. Might improve with more use. Customer service was helpful when I had questions.",
-  "Decent enough. Not bad quality but not amazing either. It serves its purpose. Would consider buying again if the price drops.",
-];
+function productReviews(name: string) {
+  const n = name.toLowerCase();
+  return {
+    titles5: [
+      `The ${n} is exactly as described`,
+      "Worth keeping on the counter",
+      "Settled into daily use immediately",
+      "Better in person than in the photos",
+      "Quiet, well-made, and useful",
+    ],
+    titles4: [
+      `Good ${n}, one small note`,
+      "Solid overall",
+      "Almost exactly what I wanted",
+      "Works well with a minor caveat",
+    ],
+    titles3: [
+      "Fine, not remarkable",
+      "Does the job",
+      "Mixed on the size",
+    ],
+    bodies5: [
+      `The ${n} arrived well packed and looks as shown. Materials feel considered rather than flashy, and it has already become part of the daily routine.`,
+      `I compared a few similar pieces before ordering this ${n}. The finish is even, the proportions are right, and it does not look cheap next to things we already own.`,
+      `Used the ${n} every day this week. Nothing fussy to figure out, and it has held up to ordinary handling without scuffs or warping.`,
+      `Bought the ${n} with two other items from the same order. All three arrived together, packed separately, and the ${n} is the one I reach for most.`,
+      `The ${n} is heavier / denser than I expected in a good way. It sits where I put it and does not feel like a disposable version of the same object.`,
+      `Color matches the listing. The ${n} fits the room without drawing attention, which is what I wanted.`,
+    ],
+    bodies4: [
+      `The ${n} is well made and functions as described. I am taking one star because it is a little smaller than it appeared in the photos, but I am keeping it.`,
+      `Happy with the ${n} overall. Instructions could be clearer, though setup still took only a few minutes.`,
+      `Good material and a calm look. Shipping took a day longer than the estimate; the ${n} itself is what I expected.`,
+      `The ${n} works well. I would have liked one more size option, but this one still fits the space.`,
+    ],
+    bodies3: [
+      `The ${n} is adequate. It does what it should, but I expected a slightly more substantial feel given the description.`,
+      `Fine for the price. The ${n} is useful enough, though I may look at a larger version later.`,
+    ],
+  };
+}
 
 function hashString(str: string): number {
   let hash = 0;
@@ -99,15 +74,16 @@ function pick<T>(arr: T[], rand: () => number): T {
 }
 
 function formatDate(daysAgo: number): string {
-  const date = new Date();
-  date.setDate(date.getDate() - daysAgo);
-  return date.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+  const date = new Date("2026-09-16T12:00:00.000Z");
+  date.setUTCDate(date.getUTCDate() - daysAgo);
+  return date.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
 }
 
 export function generateReviewsForProduct(productId: string, productName: string): ProductReview[] {
-  const seed = hashString(productId);
+  const seed = hashString(productId + productName);
   const rand = seededRandom(seed);
   const count = 12 + Math.floor(rand() * 9);
+  const copy = productReviews(productName);
 
   const reviews: ProductReview[] = [];
 
@@ -132,18 +108,14 @@ export function generateReviewsForProduct(productId: string, productName: string
     let body: string;
 
     if (rating >= 5) {
-      title = pick(REVIEW_TITLES_5, rand);
-      body = pick(BODIES_5, rand);
+      title = pick(copy.titles5, rand);
+      body = pick(copy.bodies5, rand);
     } else if (rating >= 4) {
-      title = pick(REVIEW_TITLES_4, rand);
-      body = pick(BODIES_4, rand);
+      title = pick(copy.titles4, rand);
+      body = pick(copy.bodies4, rand);
     } else {
-      title = pick(REVIEW_TITLES_3, rand);
-      body = pick(BODIES_3, rand);
-    }
-
-    if (i === 0) {
-      body = `${body.split(".")[0]}. The ${productName.toLowerCase()} specifically has been great — ${body.split(".").slice(1).join(".").trim()}`;
+      title = pick(copy.titles3, rand);
+      body = pick(copy.bodies3, rand);
     }
 
     const daysAgo = Math.floor(rand() * 365) + 1;

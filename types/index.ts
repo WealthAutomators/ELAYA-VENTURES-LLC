@@ -29,6 +29,15 @@ export interface Category {
   productCount: number;
 }
 
+export interface Collection {
+  id: string;
+  slug: string;
+  name: string;
+  description: string;
+  image: string;
+  productSlugs: string[];
+}
+
 export interface CartItem {
   product: Product;
   quantity: number;

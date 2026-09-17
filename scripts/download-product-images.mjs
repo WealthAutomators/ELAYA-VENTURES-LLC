@@ -25,32 +25,38 @@ function loadEnvLocal() {
 
 /** Tailored search terms for better product-relevant results */
 const SEARCH_QUERIES = {
-  "wireless-earbuds": "wireless earbuds product",
-  "bluetooth-speaker": "portable bluetooth speaker",
-  "smart-power-strip": "smart power strip surge protector",
   "electric-kettle": "electric glass kettle",
-  "air-fryer": "digital air fryer kitchen",
   "coffee-grinder": "burr coffee grinder",
-  "bath-towel-set": "luxury bath towel set",
-  "shower-caddy-organizer": "shower caddy organizer",
-  "kids-learning-tablet": "kids learning tablet",
-  "stem-robot-kit": "STEM robot building kit toy",
-  "dog-bed": "orthopedic dog bed",
-  "pet-food-storage": "pet food storage container",
-  "vitamin-c-serum-set": "vitamin c skincare serum",
-  "hair-care-bundle": "shampoo conditioner hair care",
-  "yoga-mat": "yoga mat fitness",
-  "resistance-bands-set": "resistance bands exercise",
-  "standing-desk-lamp": "LED desk lamp office",
-  "ergonomic-mouse-pad": "ergonomic mouse pad wrist rest",
-  "leather-wallet": "leather wallet mens",
-  "sunglasses-classic": "polarized sunglasses",
-  "baby-monitor": "video baby monitor",
-  "soft-plush-blanket": "soft baby blanket plush",
-  "building-blocks-set": "building blocks toys children",
-  "board-game-family": "family board game",
-  "foam-roller": "foam roller fitness",
-  "essential-oil-diffuser": "essential oil diffuser",
+  "bath-towel-set": "folded cotton bath towels",
+  "standing-desk-lamp": "minimal LED desk lamp",
+  "leather-wallet": "slim brown leather wallet",
+  "essential-oil-diffuser": "ceramic essential oil diffuser",
+  "merino-throw-blanket": "wool throw blanket sofa",
+  "percale-sheet-set": "white cotton bed sheets",
+  "oak-serving-tray": "wooden tea serving tray",
+  "linen-duvet-cover": "rumpled linen bedding natural flax",
+  "stoneware-dinner-set": "matte ceramic dinner plates",
+  "beechwood-cutting-board": "wooden cutting board kitchen",
+  "kitchen-scale": "vintage analog kitchen scale",
+  "linen-tea-towels": "linen kitchen towels",
+  "glass-storage-jars": "glass pantry jars wood lids",
+  "canvas-storage-bins": "canvas storage bins living room",
+  "modular-desk-organizer": "desk organizer tray",
+  "wall-hook-rail": "wood knife stand counter",
+  "catchall-tray": "ceramic jewelry tray",
+  "linen-desk-pad": "leather desk blotter office",
+  "recycled-notebook-set": "kraft notebooks stack",
+  "brass-bookends": "brass bookends on bookshelf",
+  "canvas-weekender": "canvas duffel weekender bag",
+  "packing-cubes": "folded microfiber cleaning cloths",
+  "toiletry-pouch": "leather dopp kit toiletry bag",
+  "stoneware-vase": "ceramic vase dried flowers",
+  "soy-pillar-candle": "unscented pillar candle",
+  "dried-botanicals": "dried eucalyptus bouquet",
+  "framed-linen-print": "framed landscape print white wall",
+  "linen-sleep-mask": "linen sleep eye mask",
+  "body-brush": "wooden dry body brush natural bristle",
+  "canvas-tote": "plain beige canvas tote bag",
 };
 
 function parseProducts() {
@@ -101,7 +107,7 @@ async function searchPhotos(accessKey, query, perPage = 2) {
 
 async function downloadImage(url) {
   const res = await fetch(url, {
-    headers: { "User-Agent": "AAMPartnersLLC/1.0 (product-images)" },
+    headers: { "User-Agent": "ElayaVenturesLLC/1.0 (product-images)" },
     redirect: "follow",
   });
   if (!res.ok) throw new Error(`Download HTTP ${res.status}`);
@@ -143,8 +149,9 @@ async function main() {
     process.exit(1);
   }
 
-  const products = parseProducts();
-  console.log(`Fetching images for ${products.length} products (${products.length} API searches)...\n`);
+  const filter = process.argv.slice(2);
+  const products = parseProducts().filter((p) => filter.length === 0 || filter.includes(p.slug));
+  console.log(`Fetching images for ${products.length} products...\n`);
 
   const usedPhotoIds = new Set();
   const usedHashes = new Set();

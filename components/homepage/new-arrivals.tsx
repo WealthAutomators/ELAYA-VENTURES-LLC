@@ -11,9 +11,13 @@ export function NewArrivals() {
   const products = getProductsBySlugs(homepageNewArrivalSlugs);
 
   return (
-    <section className="py-12 md:py-16">
+    <section className="bg-card py-16 md:py-24">
       <Container>
-        <SectionHeading title="New Arrivals" viewMoreLink="/new-arrivals" />
+        <SectionHeading
+          title="Just in"
+          subtitle="A short carousel of recently added pieces."
+          viewMoreLink="/new-arrivals"
+        />
         <Carousel slidesToShow={4} className="px-8">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />

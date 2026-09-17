@@ -1,22 +1,15 @@
 export const company = {
-  name: "AAM Partners LLC",
-  tagline: "Everything You Need. Delivered with Confidence.",
+  name: "ELAYA VENTURES LLC",
+  tagline: "Quiet goods for everyday living.",
   description:
-    "AAM Partners LLC brings together quality products across multiple categories, helping families find everything they need in one trusted online marketplace.",
-  email: "aampartnersllc1@gmail.com",
+    "ELAYA VENTURES LLC offers a considered selection of home, kitchen, and everyday goods — chosen for material quality, calm design, and lasting use.",
+  email: "elayaventuresllc@gmail.com",
   address: {
-    street: "717 S Military Hwy",
-    city: "Virginia Beach",
-    state: "VA",
-    zip: "23464",
+    street: "960 UNION AVE NE",
+    city: "Renton",
+    state: "WA",
+    zip: "98059",
     country: "United States",
   },
-  social: {
-    instagram: "https://instagram.com/aampartnersllc",
-    facebook: "https://facebook.com/aampartnersllc",
-    twitter: "https://twitter.com/aampartnersllc",
-    pinterest: "https://pinterest.com/aampartnersllc",
-  },
-  hours: "Mon–Fri: 9am–6pm EST",
-  copyright: `© ${new Date().getFullYear()} AAM Partners LLC. All rights reserved.`,
+  copyright: `© ${new Date().getFullYear()} ELAYA VENTURES LLC. All rights reserved.`,
 };

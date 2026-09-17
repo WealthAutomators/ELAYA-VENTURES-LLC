@@ -1,5 +1,5 @@
 /**
- * Downloads unique Unsplash images for AAM Partners LLC marketplace.
+ * Downloads unique Unsplash images for ELAYA VENTURES LLC.
  * Hero, categories, banners, products (×2), and review photos.
  */
 import fs from "fs";
@@ -334,7 +334,7 @@ function buildTargets() {
 
 async function download(url) {
   const res = await fetch(url, {
-    headers: { "User-Agent": "AAMPartnersLLC/1.0 (image-setup)" },
+    headers: { "User-Agent": "ElayaVenturesLLC/1.0 (image-setup)" },
     redirect: "follow",
   });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);

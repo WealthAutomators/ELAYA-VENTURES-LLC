@@ -38,22 +38,22 @@ export function SearchBar() {
   };
 
   return (
-    <div className="border-b border-border bg-gradient-to-r from-primary/[0.06] via-background to-accent/[0.06]">
-      <Container className="py-2">
-        <div ref={searchRef} className="relative">
+    <div className="border-t border-border bg-background">
+      <Container className="py-2.5">
+        <div ref={searchRef} className="relative mx-auto max-w-xl">
           <form onSubmit={handleSearchSubmit}>
             <div className="relative">
               <button
                 type="submit"
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-primary/70 transition-colors hover:text-primary"
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground transition-colors hover:text-foreground"
                 aria-label="Search products"
               >
-                <Search className="h-4 w-4" />
+                <Search className="h-4 w-4" strokeWidth={1.5} />
               </button>
               <Input
                 type="search"
-                placeholder="Search electronics, home, beauty, toys & more..."
-                className="h-10 rounded-lg border-primary/15 bg-white pl-10 pr-4 text-sm shadow-none focus-visible:ring-primary/25"
+                placeholder="Search the catalog"
+                className="h-10 rounded-[2px] border-border bg-card pl-10 pr-4 text-sm shadow-none"
                 value={searchQuery}
                 onChange={(e) => {
                   setSearchQuery(e.target.value);
@@ -65,7 +65,7 @@ export function SearchBar() {
           </form>
 
           {searchOpen && searchQuery.trim().length > 0 && (
-            <div className="absolute left-0 right-0 top-full z-50 mt-1 overflow-hidden rounded-lg border border-border bg-white py-1 shadow-lg">
+            <div className="absolute left-0 right-0 top-full z-50 mt-1 overflow-hidden border border-border bg-card py-1">
               {searchResults.length > 0 ? (
                 <>
                   {searchResults.map((product) => (
@@ -78,8 +78,8 @@ export function SearchBar() {
                         setSearchQuery("");
                       }}
                     >
-                      <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-md border border-border">
-                        <Image src={product.images[0]} alt={product.name} fill className="object-cover" sizes="36px" />
+                      <div className="relative h-10 w-10 shrink-0 overflow-hidden border border-border">
+                        <Image src={product.images[0]} alt={product.name} fill className="object-cover" sizes="40px" />
                       </div>
                       <div>
                         <p className="text-sm font-medium">{product.name}</p>
@@ -89,7 +89,7 @@ export function SearchBar() {
                   ))}
                   <button
                     type="button"
-                    className="w-full border-t border-border px-3 py-2 text-left text-sm font-medium text-primary transition-colors hover:bg-muted"
+                    className="w-full border-t border-border px-3 py-2 text-left text-sm font-medium text-foreground transition-colors hover:bg-muted"
                     onClick={() => {
                       router.push(`/shop?search=${encodeURIComponent(searchQuery.trim())}`);
                       setSearchOpen(false);

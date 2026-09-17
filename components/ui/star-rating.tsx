@@ -24,7 +24,7 @@ export function StarRating({ rating, reviews, size = "sm", showCount = true, cla
                 ? "fill-accent text-accent"
                 : i < rating
                   ? "fill-accent/50 text-accent"
-                  : "fill-muted text-muted"
+                  : "fill-transparent text-border"
             )}
           />
         ))}

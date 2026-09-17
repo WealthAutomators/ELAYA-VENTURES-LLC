@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { Mail, MapPin, Clock, CheckCircle } from "lucide-react";
+import { Mail, MapPin, CheckCircle } from "lucide-react";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -21,52 +21,55 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        title="Contact Us"
-        description="Have a question about your order or our products? Our team is here to help."
-        breadcrumbs={[{ label: "Contact Us" }]}
+        title="Contact"
+        description="Questions about an order or a product can be sent by email or through this form."
+        breadcrumbs={[{ label: "Contact" }]}
       />
 
       <Container className="pb-16">
         <div className="grid gap-12 py-12 lg:grid-cols-2">
           <div>
-            <h2 className="text-xl font-semibold">Get in Touch</h2>
+            <h2 className="font-display text-xl font-medium">Write to us</h2>
             <p className="mt-2 text-muted-foreground">
-              We typically respond within one business day. For order-related inquiries,
-              please include your order number.
+              Include your order number for anything related to a purchase.
             </p>
 
             <div className="mt-8 space-y-6">
-              {[
-                { icon: Mail, label: "Email", value: company.email },
-                {
-                  icon: MapPin,
-                  label: "Address",
-                  value: `${company.address.street}, ${company.address.city}, ${company.address.state} ${company.address.zip}`,
-                },
-                { icon: Clock, label: "Hours", value: company.hours },
-              ].map(({ icon: Icon, label, value }) => (
-                <div key={label} className="flex items-start gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10">
-                    <Icon className="h-4 w-4 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-medium">{label}</p>
-                    <p className="text-sm text-muted-foreground">{value}</p>
-                  </div>
+              <div className="flex items-start gap-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-border">
+                  <Mail className="h-4 w-4 text-accent" strokeWidth={1.5} />
                 </div>
-              ))}
+                <div>
+                  <p className="font-medium">Email</p>
+                  <a href={`mailto:${company.email}`} className="text-sm text-muted-foreground hover:text-foreground">
+                    {company.email}
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-border">
+                  <MapPin className="h-4 w-4 text-accent" strokeWidth={1.5} />
+                </div>
+                <div>
+                  <p className="font-medium">Address</p>
+                  <p className="text-sm text-muted-foreground">
+                    {company.address.street}<br />
+                    {company.address.city}, {company.address.state} {company.address.zip}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="rounded-xl border border-border bg-white p-6 md:p-8">
-            <h2 className="text-xl font-semibold">Send a Message</h2>
+          <div className="border border-border bg-card p-6 md:p-8">
+            <h2 className="font-display text-xl font-medium">Send a message</h2>
 
             {submitted ? (
               <div className="mt-6 flex flex-col items-center py-8 text-center">
-                <CheckCircle className="h-12 w-12 text-primary" />
-                <p className="mt-4 text-lg font-medium">Message Sent!</p>
+                <CheckCircle className="h-10 w-10 text-accent" strokeWidth={1.5} />
+                <p className="mt-4 text-lg font-medium">Message sent</p>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Thank you for reaching out. We&apos;ll get back to you within one business day.
+                  Thank you. We will reply to the email you provided.
                 </p>
               </div>
             ) : (
@@ -78,7 +81,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" required className="mt-1.5" placeholder="your@email.com" />
+                    <Input id="email" type="email" required className="mt-1.5" placeholder="you@example.com" />
                   </div>
                 </div>
                 <div>
@@ -90,7 +93,7 @@ export default function ContactPage() {
                   <Textarea id="message" required className="mt-1.5" placeholder="Tell us more..." rows={5} />
                 </div>
                 <Button type="submit" size="lg" className="w-full sm:w-auto">
-                  Send Message
+                  Send message
                 </Button>
               </form>
             )}
